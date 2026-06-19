@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://percustemodiggrs.github.io/officialcn-aiyouxi-com-cn/sitemap.xml
