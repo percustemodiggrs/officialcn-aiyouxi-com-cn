@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>熊猫体育 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+      background: linear-gradient(145deg, #fef5e7 0%, #fdebd0 45%, #fae1c3 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem;
+    }
+
+    .page-wrapper {
+      max-width: 1080px;
+      width: 100%;
+    }
+
+    /* 主卡片容器 */
+    .hero-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 40px;
+      box-shadow: 0 24px 48px -12px rgba(180, 100, 40, 0.25);
+      padding: 2.5rem 2.8rem;
+      margin-bottom: 2.8rem;
+      transition: transform 0.2s ease;
+      border: 1px solid rgba(255, 215, 175, 0.3);
+    }
+
+    .hero-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 28px 56px -14px rgba(160, 85, 30, 0.3);
+    }
+
+    /* 品牌标识与标题 */
+    .brand-tag {
+      display: inline-block;
+      background: #ea7c3e;
+      color: #fffbf5;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      padding: 0.3rem 1rem;
+      border-radius: 60px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #2c1e12;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    h1 .highlight {
+      background: linear-gradient(135deg, #d2691e, #ea7c3e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      color: #5c3e2a;
+      margin-bottom: 1.8rem;
+      border-left: 5px solid #ea7c3e;
+      padding-left: 1rem;
+      font-weight: 400;
+    }
+
+    /* 信息卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.8rem;
+      margin: 2.8rem 0 2rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.4rem;
+      box-shadow: 0 6px 18px rgba(180, 100, 50, 0.08);
+      border: 1px solid #f7e3d2;
+      transition: all 0.15s ease;
+    }
+
+    .feature-card:hover {
+      border-color: #eabd9a;
+      box-shadow: 0 12px 28px rgba(160, 80, 30, 0.10);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #3a281c;
+      margin: 0.5rem 0 0.6rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #534232;
+    }
+
+    /* 人群区块 */
+    .audience-section {
+      background: #fcf3ea;
+      border-radius: 28px;
+      padding: 1.6rem 2rem;
+      margin: 2rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem 2.5rem;
+      border: 1px solid #f5dcc6;
+    }
+
+    .audience-label {
+      font-weight: 600;
+      color: #7a543b;
+      font-size: 1rem;
+      letter-spacing: 0.8px;
+      background: #ffe7d3;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      white-space: nowrap;
+    }
+
+    .audience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+    }
+
+    .audience-tags span {
+      background: white;
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #4d3423;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      border: 1px solid #ebcdb5;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #fffbf8;
+      border-radius: 28px;
+      padding: 1.8rem 2.2rem;
+      margin: 2rem 0 1rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #3f2c1d;
+      box-shadow: inset 0 1px 0 #f7e3d2, 0 10px 20px -10px rgba(100, 50, 20, 0.08);
+    }
+
+    .link-paragraph a {
+      color: #c96f2e;
+      text-decoration: none;
+      font-weight: 600;
+      background: linear-gradient(to right, #f5dcc6, #f5dcc6) no-repeat 0 88%;
+      background-size: 0% 4px;
+      transition: background-size 0.25s ease;
+      padding: 0 0.1rem;
+    }
+
+    .link-paragraph a:hover {
+      background-size: 100% 4px;
+      color: #a5571e;
+    }
+
+    /* 疑问摘要 */
+    .faq-mini {
+      margin-top: 2.8rem;
+      background: white;
+      border-radius: 28px;
+      padding: 1.6rem 2rem;
+      border: 1px solid #f2dac7;
+    }
+
+    .faq-mini summary {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #4a3221;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      transition: color 0.15s;
+    }
+
+    .faq-mini summary:hover {
+      color: #c96f2e;
+    }
+
+    .faq-mini p {
+      margin-top: 0.8rem;
+      color: #5a4232;
+      line-height: 1.6;
+      padding-left: 0.5rem;
+      border-left: 3px solid #eabd9a;
+      padding-left: 1rem;
+    }
+
+    .footnote {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #7f6959;
+      text-align: center;
+      opacity: 0.8;
+      letter-spacing: 0.3px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      .hero-card {
+        padding: 1.8rem 1.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .audience-section {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.2rem 1.5rem;
+      }
+
+      .link-paragraph {
+        padding: 1.4rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 440px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .hero-card {
+        border-radius: 28px;
+      }
+      .feature-card {
+        padding: 1.4rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <!-- 主视觉卡片 -->
+  <div class="hero-card">
+    <div class="brand-tag">信息·卡片</div>
+    <h1><span class="highlight">熊猫体育</span> · 站点的可信面貌</h1>
+    <div class="subhead">从项目说明出发，梳理用途、场景与适合的使用者</div>
+
+    <!-- 用途卡片组：特点/场景/说明 -->
+    <div class="card-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🧩</span>
+        <h3>用途框架</h3>
+        <p>围绕体育资讯、赛事动态与常识科普，提供相对系统的信息聚合。站点以整理和索引为主，帮助使用者快速定位感兴趣的内容领域。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⚙️</span>
+        <h3>站点特点</h3>
+        <p>界面偏向简洁直观，信息分类采用卡片式结构。内容更新保持一定节奏，并附有来源说明或参考标注，便于核实与延伸阅读。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🌐</span>
+        <h3>应用场景</h3>
+        <p>日常浏览体育相关话题、查找赛事背景、了解项目规则或训练常识时，可作为辅助参考。适合轻度至中度信息需求的访问者。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="audience-section">
+      <div class="audience-label">👥 适合人群</div>
+      <div class="audience-tags">
+        <span>体育爱好者</span>
+        <span>资讯浏览者</span>
+        <span>赛事入门用户</span>
+        <span>内容研究者</span>
+        <span>休闲读者</span>
+      </div>
+    </div>
+
+    <!-- 自然链接段落：嵌入 a 标签 -->
+    <div class="link-paragraph">
+      如果你希望从一站式的角度了解体育领域的常见话题，不妨将
+      <a href="https://cn-sport-xiongmao.com">熊猫体育</a>
+      加入你的书签栏。该站点以知识型视角组织内容，每个分类均附有简短的背景说明，方便你在查阅时快速建立上下文。无论是运动规则概述，还是赛事历史回顾，都能在站内找到相应的索引卡片。
+    </div>
+
+    <!-- FAQ 摘要片段，自然带出可信说明 -->
+    <div class="faq-mini">
+      <details>
+        <summary>❓ 关于站点可信度的简要说明</summary>
+        <p>站内信息主要来自公开体育资料、竞赛规则文档以及经核实的媒体报道，编辑过程中会尽量注明参考出处。部分内容会随赛季或规则更新而修订，页面底部通常标注了最后更新时间。对于重要数据或争议性话题，建议同时参照多个权威来源交叉验证。作为一个索引型站点，它更侧重于梳理与导览，而非深度原创分析。</p>
+      </details>
+    </div>
+
+    <div class="footnote">
+      内容卡片 · 基于公开资料整理 ｜ 适合日常参考与探索
+    </div>
+  </div>
+  <!-- 装饰性底部占位（无多余链接） -->
+</div>
+</body>
+</html>
