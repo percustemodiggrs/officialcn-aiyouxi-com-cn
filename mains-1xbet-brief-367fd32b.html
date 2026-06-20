@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次遇见 · 1xbet 故事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f6fa;
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: #0b121f;
+            background-image: radial-gradient(ellipse at 20% 50%, #1a2740 0%, #0b121f 80%);
+            color: #e9edf5;
+            padding: 3.8rem 1.8rem 4.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: #f4f6fa;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #a5b9d9;
+            margin-bottom: 0.8rem;
+            font-weight: 400;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 600;
+            max-width: 700px;
+            margin: 0.4rem auto;
+            line-height: 1.3;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #bac9e2;
+            margin-top: 1rem;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.8rem;
+        }
+
+        .content-section {
+            margin-top: -1rem;
+            position: relative;
+            z-index: 2;
+            background: transparent;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.4rem 2.2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2.2rem;
+        }
+
+        .opening {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.6rem;
+            color: #1e293b;
+        }
+
+        .opening::first-letter {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #2f5fa8;
+            float: left;
+            margin-right: 8px;
+            margin-top: 2px;
+        }
+
+        .highlight-link {
+            color: #2f5fa8;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .highlight-link:hover {
+            border-bottom-color: #2f5fa8;
+            color: #1a3d6b;
+        }
+
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 1.2rem;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #f0f4fd;
+            border-radius: 16px;
+            padding: 1.2rem 1.2rem 1.2rem 1.6rem;
+            border-left: 4px solid #2f5fa8;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .feature-item:hover {
+            background: #e6edf9;
+            transform: translateY(-2px);
+        }
+
+        .feature-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #1e293b;
+        }
+
+        .feature-item p {
+            font-size: 0.92rem;
+            color: #475569;
+        }
+
+        .story-continuation {
+            margin: 2rem 0 1rem;
+        }
+
+        .story-continuation p {
+            margin-bottom: 1rem;
+        }
+
+        .gentle-note {
+            background: #f9fafc;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            border: 1px solid #e2e8f0;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .gentle-note p {
+            font-size: 0.98rem;
+            color: #334155;
+        }
+
+        .faq-mini {
+            margin: 1.8rem 0 0.8rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #1e293b;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            font-size: 0.98rem;
+            border-bottom: 1px dashed #d1d9e6;
+        }
+
+        .faq-mini summary:hover {
+            color: #2f5fa8;
+        }
+
+        .faq-mini p {
+            margin: 0.6rem 0 1.2rem 0.8rem;
+            color: #475569;
+            font-size: 0.94rem;
+        }
+
+        .closing {
+            text-align: center;
+            padding: 2rem 0.5rem 1rem;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .closing a {
+            color: #2f5fa8;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dce2ec;
+            margin: 1.8rem 0 1rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 1.2rem 1.8rem 2.2rem;
+            font-size: 0.85rem;
+            color: #7e8b9f;
+            background: transparent;
+            border-top: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+
+        .footer-note a {
+            color: #2f5fa8;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 20px;
+            }
+
+            .features-grid {
+                flex-direction: column;
+            }
+
+            .feature-item {
+                flex: 1 1 auto;
+            }
+
+            .hero {
+                padding: 2.8rem 1.2rem 3.5rem;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+
+            .opening {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-tagline">又一次回到这里</div>
+        <h1 class="hero-title">有些熟悉感，值得被收藏</h1>
+        <p class="hero-sub">每一个习惯性打开的页面，都藏着一段属于自己的节奏</p>
+    </header>
+
+    <main class="container content-section">
+        <div class="card">
+            <div class="opening">
+                再次输入那串熟悉的地址，光标停留的瞬间，仿佛看见几周前自己浏览的样子。<br>
+                <a href="https://mains-1xbet.com" class="highlight-link">1xbet</a> 这个页面，不知从什么时候起，成了浏览器收藏夹里常驻的存在。不是因为它多特别，而是每次打开，总能找到点什么——一场比赛前瞻，一条玩法解析，或者只是看看有什么新的体育动态。
+            </div>
+
+            <div class="story-continuation">
+                <p>后来逐渐养成了习惯：周末晚上点开，翻几页，然后关掉。没有太强的目的性，更像是去一个安静更新的公告板。界面熟悉，选项位置了然于心，连加载时的那一小段等待都变得自然。</p>
+                <p>大概这就是持续关注的状态——不需要每次都被提醒，也不会彻底遗忘。页面里那些联赛、指数、对阵，慢慢成为日常背景音的一部分。哪天没看，反而觉得少了点什么。</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>结构清晰</h4>
+                    <p>赛事与玩法分区明确，即使隔几天再来，也能迅速找到想看的板块。</p>
+                </div>
+                <div class="feature-item">
+                    <h4>信息密度适中</h4>
+                    <p>首页不会堆满弹窗或横幅，浏览节奏可以由自己控制。</p>
+                </div>
+                <div class="feature-item">
+                    <h4>多项目覆盖</h4>
+                    <p>从主流足球、篮球到小众赛事，总能找到正在进行的对局。</p>
+                </div>
+                <div class="feature-item">
+                    <h4>视觉不疲劳</h4>
+                    <p>深色为主的头部和浅色内容区，长时间看也不会太累。</p>
+                </div>
+            </div>
+
+            <div class="gentle-note">
+                <p>收藏夹里的链接，有时比我们更清楚自己的浏览习惯。如果你也偶尔回来看看，不妨把它留在顺手的位置。下次再想了解最新赛事动态时，就不用重新搜索了——<a href="https://mains-1xbet.com" class="highlight-link">1xbet</a> 始终在那里，内容照常更新，页面一如既往。</p>
+            </div>
+
+            <details class="faq-mini">
+                <summary>关于页面的一些常见疑问</summary>
+                <p><strong>页面会经常改版吗？</strong> 主体布局相对稳定，但赛事列表和赔率会实时变动，每次访问都可能看到新的对局。</p>
+                <p><strong>需要注册才能浏览吗？</strong> 大部分赛事信息和玩法说明在首页及子页面可直接查看，不需登录。</p>
+                <p><strong>移动端体验如何？</strong> 页面适配手机屏幕，卡片和按钮间距在窄屏下会相应调整，阅读体验流畅。</p>
+            </details>
+
+            <hr>
+
+            <div class="closing">
+                从初次到访，到再次打开，再到自然地收藏——<br>
+                有些页面就是这样，慢慢变成你网络漫游中的一个固定坐标。
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-note">
+        <span>页面内容仅作介绍 · 保持开放与温和 · <a href="https://mains-1xbet.com">1xbet</a></span>
+    </footer>
+
+</body>
+</html>
